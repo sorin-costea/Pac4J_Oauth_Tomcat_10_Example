@@ -40,7 +40,7 @@ public class OauthReturn extends AbstractAuth {
         }
 
         Optional<UserProfile> profile = client.getUserProfile(credentials.get(), context, sessionStore);
-        if (profile.isEmpty()) {
+        if (!profile.isPresent()) {
             logger.error("User came went through auth but is missing profile data.");
             resp.sendRedirect("/oauth");
             return;
