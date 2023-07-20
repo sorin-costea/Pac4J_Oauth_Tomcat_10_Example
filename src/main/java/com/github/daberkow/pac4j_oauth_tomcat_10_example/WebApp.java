@@ -12,7 +12,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.Serial;
 
 @WebServlet(
         name = "RootApp",
@@ -20,7 +19,7 @@ import java.io.Serial;
 )
 public class WebApp extends HttpServlet {
     private static final Logger logger = LogManager.getLogger(WebApp.class);
-    @Serial
+//    @Serial
     private static final long serialVersionUID = 2802147441289972890L;
 
     @Override

@@ -21,7 +21,7 @@ import java.util.Optional;
  */
 public class OauthReturn extends AbstractAuth {
     private static final Logger logger = LogManager.getLogger(OauthReturn.class);
-    @Serial
+//    @Serial
     private static final long serialVersionUID = -2859249637388126407L;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -9,13 +9,12 @@ import org.pac4j.oauth.client.GenericOAuth20Client;
 import org.pac4j.oauth.config.OAuth20Configuration;
 import org.pac4j.oauth.profile.generic.GenericOAuth20ProfileDefinition;
 import org.pac4j.scribe.builder.api.GenericApi20;
-import java.io.Serial;
 
 /**
  * Abstract class to put our OAuth shared information in.
  */
 public class AbstractAuth extends HttpServlet {
-    @Serial
+//    @Serial
     private static final long serialVersionUID = 3611287488843780687L;
     protected static GenericOAuth20Client client;
     static RandomValueGenerator stateGenerator = new RandomValueGenerator(30);
@@ -30,7 +29,7 @@ public class AbstractAuth extends HttpServlet {
         // Out client ID and secrets, we make these variables like in the other servlet to migrate this to a config file
         oAuthConfig.setKey("example-client");
 //        oAuthConfig.setSecret("example_secret");
-        oAuthConfig.setSecret("zNpejOp7ZSyuHwlt8EdjhBkm5wPlOODS");
+        oAuthConfig.setSecret("km6BsRDXBqCaqLkJ0dCyTiamIgeQ9IKC");
         oAuthConfig.setWithState(true);
         oAuthConfig.setStateGenerator(stateGenerator);
         oAuthConfig.setScope("profile");

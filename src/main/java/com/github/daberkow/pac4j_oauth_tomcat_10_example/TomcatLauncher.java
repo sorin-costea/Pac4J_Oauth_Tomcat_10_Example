@@ -6,6 +6,7 @@ import org.apache.catalina.Wrapper;
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.core.StandardHost;
 import org.apache.catalina.startup.Tomcat;
+import org.apache.catalina.valves.ErrorReportValve;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.tomcat.util.descriptor.web.FilterDef;
@@ -29,8 +30,8 @@ public class TomcatLauncher implements Runnable {
 
         // This is optional, and in place to pass Nessus Security Scans
         // https://stackoverflow.com/questions/52814582/tomcat-is-not-redirecting-to-400-bad-request-custom-error-page/55702749#55702749
-        var host = (StandardHost) tomcat.getHost();
-        var errorReportValve = new org.apache.catalina.valves.ErrorReportValve();
+        StandardHost host = (StandardHost) tomcat.getHost();
+        ErrorReportValve errorReportValve = new org.apache.catalina.valves.ErrorReportValve();
         errorReportValve.setShowReport(false);
         errorReportValve.setShowServerInfo(false);
         host.addValve(errorReportValve);

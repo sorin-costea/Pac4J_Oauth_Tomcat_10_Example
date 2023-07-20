@@ -27,19 +27,21 @@ public class SessionManager extends HttpServlet {
 
         String returningText = "";
         switch (req.getRequestURI().toLowerCase()) {
-            case "/session/status" -> {
+            case "/session/status": {
                 if (isLoggedIn(req)) {
                     returningText = "Logged In";
                 } else {
                     returningText = "Not Logged In";
                 }
             }
-            case "/session/logout" -> {
+            break;
+            case "/session/logout": {
                 req.getSession().invalidate();
                 req.logout();
                 resp.sendRedirect("/");
             }
-            default -> returningText = "No Return";
+            break;
+            default: returningText = "No Return";
         }
         final ServletOutputStream outputStream = resp.getOutputStream();
         resp.setContentType("text/html; charset=utf-8");

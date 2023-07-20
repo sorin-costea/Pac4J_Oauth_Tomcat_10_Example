@@ -16,13 +16,13 @@ public class CSPProtection extends FilterBase {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws ServletException, IOException {
 
-        if (response instanceof HttpServletResponse httpResponse) {
+        if (response instanceof HttpServletResponse) {
             if (response.isCommitted()) {
                 throw new ServletException("httpHeaderSecurityFilter.committed");
             }
 
             // CSP
-            httpResponse.setHeader("Content-Security-Policy", policy);
+            ((HttpServletResponse) response).setHeader("Content-Security-Policy", policy);
         }
         chain.doFilter(request, response);
     }
