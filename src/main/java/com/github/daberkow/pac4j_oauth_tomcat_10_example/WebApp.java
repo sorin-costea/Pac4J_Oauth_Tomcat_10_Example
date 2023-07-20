@@ -10,8 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.stream.Collectors;
 
 @WebServlet(
         name = "RootApp",
@@ -35,7 +39,10 @@ public class WebApp extends HttpServlet {
         final ClassLoader classLoader = getClass().getClassLoader();
         InputStream inputStream = classLoader.getResourceAsStream("index.html");
 
-        String tempStringHolder = new String(inputStream.readAllBytes());
+        String tempStringHolder = new BufferedReader(
+            new InputStreamReader(inputStream, StandardCharsets.UTF_8))
+              .lines()
+              .collect(Collectors.joining("\n"));
 
         // Here we know we have some contents. The index page has a variable I will replace to show the user's status
         StringBuilder stringBuilder = new StringBuilder();
