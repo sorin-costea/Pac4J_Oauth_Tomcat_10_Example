@@ -1,9 +1,9 @@
 package com.github.daberkow.pac4j_oauth_tomcat_10_example.oauth;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;
 import org.pac4j.core.context.WebContext;
 import org.pac4j.core.context.session.SessionStore;

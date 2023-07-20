@@ -1,7 +1,7 @@
 package com.github.daberkow.pac4j_oauth_tomcat_10_example;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.*;
+import javax.servlet.http.HttpServletResponse;
 import org.apache.catalina.filters.FilterBase;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;

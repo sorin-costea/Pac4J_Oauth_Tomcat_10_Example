@@ -1,8 +1,8 @@
-# Pac4J_Oauth_Tomcat_10_Example
+# Pac4J_Oauth_Tomcat_9_Example
 
-An example of using embedded Tomcat 10 With Pac4J and Generic OAuth. I spent a chunk of time learning how to integrate Tomcat 10 (Jakarta) with Pac4J and Keycloak. This code is an example to anyone who needs to do similar. I have also thrown in some examples of Tomcat security settings which can [help you get through a Nessus scan](https://buildingtents.com/2022/10/26/clean-tenable-nessus-scans-for-rhel-7-with-podman/).
+An example of using embedded Tomcat 10 With Pac4J and Generic OAuth. I spent a chunk of time learning how to integrate Tomcat 9 (javax) with Pac4J and Keycloak. This code is an example to anyone who needs to do similar. I have also thrown in some examples of Tomcat security settings which can [help you get through a Nessus scan](https://buildingtents.com/2022/10/26/clean-tenable-nessus-scans-for-rhel-7-with-podman/).
 
-Targeting: Java 17, PAC4J 5.7, Tomcat 10.1
+Targeting: Java 8, PAC4J 5.7, Tomcat 9.0
 
 ## Using this Repo
 

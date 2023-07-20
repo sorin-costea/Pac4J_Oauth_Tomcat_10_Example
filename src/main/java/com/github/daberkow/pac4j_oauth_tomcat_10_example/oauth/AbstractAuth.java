@@ -1,9 +1,9 @@
 package com.github.daberkow.pac4j_oauth_tomcat_10_example.oauth;
 
 import com.github.daberkow.pac4j_oauth_tomcat_10_example.App;
-import jakarta.servlet.ServletConfig;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import org.pac4j.core.util.generator.RandomValueGenerator;
 import org.pac4j.oauth.client.GenericOAuth20Client;
 import org.pac4j.oauth.config.OAuth20Configuration;

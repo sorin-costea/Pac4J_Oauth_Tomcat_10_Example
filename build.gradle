@@ -50,14 +50,14 @@ dependencies {
     implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.19.0'
 
     // Embedded Tomcat
-    implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: '10.1.4'
-    implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '10.1.4'
-    implementation group: 'org.apache.tomcat', name: 'tomcat-jasper-el', version: '10.1.4'
-    implementation group: 'org.apache.tomcat', name: 'tomcat-jsp-api', version: '10.1.4'
+    implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: '9.0.78'
+    implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '9.0.78'
+    implementation group: 'org.apache.tomcat', name: 'tomcat-jasper-el', version: '9.0.78'
+    implementation group: 'org.apache.tomcat', name: 'tomcat-jsp-api', version: '9.0.78'
 
     implementation group: 'org.pac4j', name: 'pac4j-core', version: '5.7.0'
     implementation group: 'org.pac4j', name: 'pac4j-oauth', version: '5.7.0'
-    implementation group: 'org.pac4j', name: 'pac4j-jakartaee', version: '5.7.0'
+    implementation group: 'org.pac4j', name: 'pac4j-javaee', version: '5.7.0'
 
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.10'
 
