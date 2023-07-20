@@ -55,9 +55,9 @@ dependencies {
     implementation group: 'org.apache.tomcat', name: 'tomcat-jasper-el', version: '9.0.78'
     implementation group: 'org.apache.tomcat', name: 'tomcat-jsp-api', version: '9.0.78'
 
-    implementation group: 'org.pac4j', name: 'pac4j-core', version: '5.7.0'
-    implementation group: 'org.pac4j', name: 'pac4j-oauth', version: '5.7.0'
-    implementation group: 'org.pac4j', name: 'pac4j-javaee', version: '5.7.0'
+    implementation group: 'org.pac4j', name: 'pac4j-core', version: '4.1.0'
+    implementation group: 'org.pac4j', name: 'pac4j-oauth', version: '4.1.0'
+    implementation group: 'org.pac4j', name: 'j2e-pac4j', version: '4.1.0'
 
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.10'
 

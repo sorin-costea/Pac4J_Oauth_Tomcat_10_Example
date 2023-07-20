@@ -9,7 +9,6 @@ import org.pac4j.oauth.client.GenericOAuth20Client;
 import org.pac4j.oauth.config.OAuth20Configuration;
 import org.pac4j.oauth.profile.generic.GenericOAuth20ProfileDefinition;
 import org.pac4j.scribe.builder.api.GenericApi20;
-
 /**
  * Abstract class to put our OAuth shared information in.
  */
@@ -23,7 +22,7 @@ public class AbstractAuth extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         OAuth20Configuration oAuthConfig = new OAuth20Configuration();
-        oAuthConfig.setApi(GenericApi20.class);
+        oAuthConfig.setApi(new GenericApi20(App.oauthServer + "auth/realms/example/protocol/openid-connect/auth", App.oauthServer + "auth/realms/example/protocol/openid-connect/token"));
         oAuthConfig.setProfileDefinition(new GenericOAuth20ProfileDefinition());
 
         // Out client ID and secrets, we make these variables like in the other servlet to migrate this to a config file

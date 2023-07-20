@@ -5,13 +5,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;
+import org.pac4j.core.context.JEEContext;
 import org.pac4j.core.context.WebContext;
 import org.pac4j.core.context.session.SessionStore;
 import org.pac4j.core.credentials.Credentials;
 import org.pac4j.core.exception.TechnicalException;
 import org.pac4j.core.profile.UserProfile;
-import org.pac4j.jee.context.JEEContext;
-import org.pac4j.jee.context.session.JEESessionStoreFactory;
+import org.pac4j.oauth.credentials.OAuth20Credentials;
 import org.apache.logging.log4j.Logger;
 import java.io.*;
 import java.util.Optional;
@@ -26,11 +26,10 @@ public class OauthReturn extends AbstractAuth {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         WebContext context = new JEEContext(req, resp);
-        SessionStore sessionStore = JEESessionStoreFactory.INSTANCE.newSessionStore(req, resp);
-        Optional<Credentials> credentials;
+        Optional<OAuth20Credentials> credentials;
         //Wrap this in a try
         try {
-            credentials = client.getCredentials(context, sessionStore);
+            credentials = client.getCredentials(context);
         } catch (TechnicalException e) {
             // 'unauthorized_client' means the clientid and secret between this server and the oauth server do not match
             // In restarting this Java server you may see "invalid grant", this is left over from the session before
@@ -39,7 +38,7 @@ public class OauthReturn extends AbstractAuth {
             return;
         }
 
-        Optional<UserProfile> profile = client.getUserProfile(credentials.get(), context, sessionStore);
+        Optional<UserProfile> profile = client.getUserProfile(credentials.get(), context);
         if (!profile.isPresent()) {
             logger.error("User came went through auth but is missing profile data.");
             resp.sendRedirect("/oauth");
