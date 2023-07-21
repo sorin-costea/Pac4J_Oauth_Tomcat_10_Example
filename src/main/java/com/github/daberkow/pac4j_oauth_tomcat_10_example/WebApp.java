@@ -43,7 +43,9 @@ public class WebApp extends HttpServlet {
             new InputStreamReader(inputStream, StandardCharsets.UTF_8))
               .lines()
               .collect(Collectors.joining("\n"));
-
+        logger.info("---user: " + req.getSession().getAttribute("user"));
+        logger.info("---roles: " + req.getSession().getAttribute("roles"));
+        logger.info("---perms: " + req.getSession().getAttribute("permissions"));
         // Here we know we have some contents. The index page has a variable I will replace to show the user's status
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(tempStringHolder.substring(0, tempStringHolder.indexOf("THIS_SERVER_STATUS")));

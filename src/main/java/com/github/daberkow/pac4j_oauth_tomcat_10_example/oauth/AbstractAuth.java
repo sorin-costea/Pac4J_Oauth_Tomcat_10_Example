@@ -26,12 +26,13 @@ public class AbstractAuth extends HttpServlet {
         oAuthConfig.setProfileDefinition(new GenericOAuth20ProfileDefinition());
 
         // Out client ID and secrets, we make these variables like in the other servlet to migrate this to a config file
-        oAuthConfig.setKey("example-client");
-//        oAuthConfig.setSecret("example_secret");
-        oAuthConfig.setSecret("km6BsRDXBqCaqLkJ0dCyTiamIgeQ9IKC");
+//        oAuthConfig.setKey("example-client");
+//        oAuthConfig.setSecret("km6BsRDXBqCaqLkJ0dCyTiamIgeQ9IKC");
+        oAuthConfig.setKey("example-oidc");
+        oAuthConfig.setSecret("IMUUVYYTa4EaeF5jxcBR7cg1z7egnRod");
         oAuthConfig.setWithState(true);
         oAuthConfig.setStateGenerator(stateGenerator);
-        oAuthConfig.setScope("profile");
+        oAuthConfig.setScope("openid");
 
         client = new GenericOAuth20Client();
         client.setAuthUrl(App.oauthServer + "auth/realms/example/protocol/openid-connect/auth");

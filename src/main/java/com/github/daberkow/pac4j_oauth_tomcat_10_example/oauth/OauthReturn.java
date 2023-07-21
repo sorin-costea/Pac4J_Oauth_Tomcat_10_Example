@@ -48,6 +48,12 @@ public class OauthReturn extends AbstractAuth {
         String username = profile.get().getId();
         logger.info("Successful login for " + username + " from " + req.getLocalAddr());
         session.setAttribute("user", username);
+        logger.info("---roles: " + profile.get().getRoles());
+        logger.info("---roles: " + profile.get().getRoles().toString());
+        logger.info("---perms: " + profile.get().getPermissions());
+        logger.info("---perms: " + profile.get().getPermissions().toString());
+        session.setAttribute("roles", profile.get().getRoles().toString());
+        session.setAttribute("permissions", profile.get().getPermissions().toString());
         resp.sendRedirect("/");
     }
 }

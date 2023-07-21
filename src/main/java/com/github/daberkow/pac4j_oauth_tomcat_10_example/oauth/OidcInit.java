@@ -18,15 +18,14 @@ import org.pac4j.core.exception.http.WithLocationAction;
  * Our entry into our OAuth flow, this gets your session between the server and your browser, makes sure you have a
  * valid cookie, then redirects you to the auth server to login.
  */
-public class OauthInit extends AbstractOidc {
+public class OidcInit extends AbstractOidc {
   private static final Logger logger = LogManager.getLogger(OidcInit.class);
   //    @Serial
-  private static final long serialVersionUID = -2859249465288126407L;
+  private static final long serialVersionUID = -2859249637388126407L;
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     final WebContext context = new JEEContext(req, resp);
     final Optional<RedirectionAction> redirect = client.getRedirectionAction(context);
-    // https://github.com/tumbashlah/apereo/blob/77a15413d384e4c59a200d8bfc2b30d6a1de75d4/support/cas-server-support-pac4j-webflow/src/main/java/org/apereo/cas/web/BaseDelegatedAuthenticationController.java#L88
     if (redirect.isPresent()) {
       final RedirectionAction action = redirect.get();
       logger.debug("Determined final redirect action for client [{}] as [{}]", client, action);

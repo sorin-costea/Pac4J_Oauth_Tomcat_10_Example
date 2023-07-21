@@ -57,9 +57,11 @@ dependencies {
 
     implementation group: 'org.pac4j', name: 'pac4j-core', version: '4.1.0'
     implementation group: 'org.pac4j', name: 'pac4j-oauth', version: '4.1.0'
+    implementation group: 'org.pac4j', name: 'pac4j-oidc', version: '4.1.0'
     implementation group: 'org.pac4j', name: 'j2e-pac4j', version: '4.1.0'
 
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.10'
+    implementation group: 'com.google.guava', name: 'guava', version: '32.0.1-jre'
 
     implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.6'
 }
