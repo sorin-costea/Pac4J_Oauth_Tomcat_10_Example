@@ -19,7 +19,7 @@ import org.pac4j.core.exception.http.WithLocationAction;
  * valid cookie, then redirects you to the auth server to login.
  */
 public class OauthInit extends AbstractOidc {
-  private static final Logger logger = LogManager.getLogger(OidcInit.class);
+  private static final Logger logger = LogManager.getLogger(OauthInit.class);
   //    @Serial
   private static final long serialVersionUID = -2859249465288126407L;
   @Override
