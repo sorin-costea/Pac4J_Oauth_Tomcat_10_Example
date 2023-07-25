@@ -7,13 +7,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class App {
-    private static final Logger logger = LogManager.getLogger(App.class);
+  private static final Logger logger = LogManager.getLogger(App.class);
 
-    public final static String oauthServer = "http://127.0.0.1:8081/";
-    public static void main(String[] args) {
-        logger.info("Starting...");
-        Runnable tomcatRunnable = new TomcatLauncher();
-        Thread thread = new Thread(tomcatRunnable);
-        tomcatRunnable.run();
-    }
+  public static void main(String[] args) {
+    logger.info("Starting...");
+    final Runnable tomcatRunnable = new TomcatLauncher();
+    @SuppressWarnings("unused")
+    final
+    Thread thread = new Thread(tomcatRunnable);
+    tomcatRunnable.run();
+  }
 }

@@ -18,6 +18,8 @@ import org.apache.logging.log4j.Logger;
  */
 @WebServlet(name = "SessionManager", urlPatterns = { "/session/*" })
 public class SessionManager extends HttpServlet {
+  // @Serial
+  private static final long serialVersionUID = 3611213278843780687L;
   private static final Logger logger = LogManager.getLogger(SessionManager.class);
 
   @Override

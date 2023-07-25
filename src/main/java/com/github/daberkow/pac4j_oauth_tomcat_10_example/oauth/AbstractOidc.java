@@ -4,8 +4,11 @@ import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 
+import org.pac4j.core.http.callback.NoParameterCallbackUrlResolver;
 import org.pac4j.oidc.client.OidcClient;
 import org.pac4j.oidc.config.OidcConfiguration;
+
+import com.nimbusds.oauth2.sdk.auth.ClientAuthenticationMethod;
 
 public class AbstractOidc extends HttpServlet {
   private static final long serialVersionUID = 3611287354543780687L;
@@ -20,9 +23,11 @@ public class AbstractOidc extends HttpServlet {
     final OidcConfiguration oidcConfig = new OidcConfiguration();
     oidcConfig.setClientId("example-oidc");
     oidcConfig.setSecret("IMUUVYYTa4EaeF5jxcBR7cg1z7egnRod");
+    oidcConfig.setClientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_POST);
     oidcConfig.setDiscoveryURI(discoveryURI);
-    oidcConfig.setScope("openid email profile phone roles");
+    oidcConfig.setScope("openid vo");
     client = new OidcClient<>(oidcConfig);
+    client.setCallbackUrlResolver(new NoParameterCallbackUrlResolver());
     client.setCallbackUrl("http://127.0.0.1:8080/oauth/redirect");
   }
 
