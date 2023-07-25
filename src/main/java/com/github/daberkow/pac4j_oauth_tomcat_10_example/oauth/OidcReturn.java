@@ -34,26 +34,27 @@ public class OidcReturn extends AbstractOidc {
       // 'unauthorized_client' means the clientid and secret between this server and the oauth server do not match
       // In restarting this Java server you may see "invalid grant", this is left over from the session before
       logger.error("User came with bad credentials to the redirect endpoint.", e);
-      resp.sendRedirect("/oauth");
+      resp.sendRedirect("/");
       return;
     }
 
     final Optional<UserProfile> profile = client.getUserProfile(credentials.get(), context);
     if (!profile.isPresent()) {
-      logger.error("User came went through auth but is missing profile data.");
-      resp.sendRedirect("/oauth");
+      logger.error("User is missing profile data.");
+      resp.sendRedirect("/");
+      return;
+    }
+    if (!profile.get().containsAttribute("vo_id")) {
+      logger.error("User is missing VO number.");
+      resp.sendRedirect("/");
       return;
     }
     final HttpSession session = req.getSession(true);
     final String username = profile.get().getId();
     logger.info("Successful login for " + username + " from " + req.getLocalAddr());
+    final String vo = (String) profile.get().getAttribute("vo_id");
     session.setAttribute("user", username);
-    logger.info("---roles: " + profile.get().getRoles());
-    logger.info("---roles: " + profile.get().getRoles().toString());
-    logger.info("---perms: " + profile.get().getPermissions());
-    logger.info("---perms: " + profile.get().getPermissions().toString());
-    session.setAttribute("roles", profile.get().getRoles().toString());
-    session.setAttribute("permissions", profile.get().getPermissions().toString());
+    session.setAttribute("vo", vo);
     resp.sendRedirect("/");
   }
 }

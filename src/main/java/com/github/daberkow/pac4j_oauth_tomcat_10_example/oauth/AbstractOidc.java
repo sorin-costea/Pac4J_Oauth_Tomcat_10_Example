@@ -24,11 +24,13 @@ public class AbstractOidc extends HttpServlet {
     oidcConfig.setClientId("example-oidc");
     oidcConfig.setSecret("IMUUVYYTa4EaeF5jxcBR7cg1z7egnRod");
     oidcConfig.setClientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_POST);
+    oidcConfig.setResponseType("code");
     oidcConfig.setDiscoveryURI(discoveryURI);
-    oidcConfig.setScope("openid vo");
+    oidcConfig.setScope("openid profile vo");
+    oidcConfig.setUseNonce(true);
     client = new OidcClient<>(oidcConfig);
     client.setCallbackUrlResolver(new NoParameterCallbackUrlResolver());
-    client.setCallbackUrl("http://127.0.0.1:8080/oauth/redirect");
+    client.setCallbackUrl("http://127.0.0.1:4200/oauth/redirect");
   }
 
 }
