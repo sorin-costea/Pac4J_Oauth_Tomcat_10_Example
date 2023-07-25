@@ -25,7 +25,7 @@ public class AbstractOidc extends HttpServlet {
     oidcConfig.setSecret("IMUUVYYTa4EaeF5jxcBR7cg1z7egnRod");
     oidcConfig.setClientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_POST);
     oidcConfig.setDiscoveryURI(discoveryURI);
-    oidcConfig.setScope("openid");
+    oidcConfig.setScope("openid profile vo");
     client = new OidcClient<>(oidcConfig);
     client.setCallbackUrlResolver(new NoParameterCallbackUrlResolver());
     client.setCallbackUrl("http://127.0.0.1:8080/oauth/redirect");
