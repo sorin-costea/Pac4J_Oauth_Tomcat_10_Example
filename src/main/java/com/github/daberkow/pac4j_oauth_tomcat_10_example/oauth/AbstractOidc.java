@@ -26,7 +26,7 @@ public class AbstractOidc extends HttpServlet {
     oidcConfig.setClientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_POST);
     oidcConfig.setResponseType("code");
     oidcConfig.setDiscoveryURI(discoveryURI);
-    oidcConfig.setScope("openid profile"); // vo); <- vo doesn't work with local keycloak but required
+    oidcConfig.setScope("openid profile vo");
     oidcConfig.setUseNonce(true);
     client = new OidcClient<>(oidcConfig);
     client.setCallbackUrlResolver(new NoParameterCallbackUrlResolver());
