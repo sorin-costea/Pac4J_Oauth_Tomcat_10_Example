@@ -44,11 +44,6 @@ public class OidcReturn extends AbstractOidc {
       resp.sendRedirect("/");
       return;
     }
-    if (!profile.get().containsAttribute("vo_id")) {
-      logger.error("User is missing VO number.");
-      resp.sendRedirect("/");
-      return;
-    }
     final HttpSession session = req.getSession(true);
     final String username = profile.get().getId();
     logger.info("Successful login for " + username + " from " + req.getLocalAddr());
