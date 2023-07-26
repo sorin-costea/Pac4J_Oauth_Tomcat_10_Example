@@ -50,10 +50,10 @@ dependencies {
     implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.19.0'
 
     // Embedded Tomcat
-    implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: '9.0.78'
-    implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '9.0.78'
-    implementation group: 'org.apache.tomcat', name: 'tomcat-jasper-el', version: '9.0.78'
-    implementation group: 'org.apache.tomcat', name: 'tomcat-jsp-api', version: '9.0.78'
+    implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: '8.5.34'
+    implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '8.5.34'
+    implementation group: 'org.apache.tomcat', name: 'tomcat-jasper-el', version: '8.5.34'
+    implementation group: 'org.apache.tomcat', name: 'tomcat-jsp-api', version: '8.5.34'
 
     implementation group: 'org.pac4j', name: 'pac4j-core', version: '4.0.0'
     implementation group: 'org.pac4j', name: 'pac4j-oauth', version: '4.0.0'
