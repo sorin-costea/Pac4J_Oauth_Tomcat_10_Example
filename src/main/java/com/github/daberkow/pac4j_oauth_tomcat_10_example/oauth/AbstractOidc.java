@@ -30,7 +30,7 @@ public class AbstractOidc extends HttpServlet {
     oidcConfig.setUseNonce(true);
     client = new OidcClient<>(oidcConfig);
     client.setCallbackUrlResolver(new NoParameterCallbackUrlResolver());
-    client.setCallbackUrl("https://127.0.0.1:4200/auth/v1/callback");
+    client.setCallbackUrl("https://localhost/Kiara/callback");
   }
 
 }

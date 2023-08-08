@@ -30,7 +30,7 @@ public class TomcatLauncher implements Runnable {
       logger.error("Error making working directory for Tomcat");
     }
     tomcat.setBaseDir("tmp");
-    tomcat.setPort(4200);
+    tomcat.setPort(443);
 
     // This is optional, and in place to pass Nessus Security Scans
     // https://stackoverflow.com/questions/52814582/tomcat-is-not-redirecting-to-400-bad-request-custom-error-page/55702749#55702749
@@ -94,8 +94,8 @@ public class TomcatLauncher implements Runnable {
       //      ctx.addServletMappingDecoded("/oauth", "Oauth");
       //      ctx.addServletMappingDecoded("/oauth/redirect", "OauthCallback");
       ctx.addServletMappingDecoded("/oauth", "Oidc");
-      ctx.addServletMappingDecoded("/auth/v1/callback", "OidcCallback");
-      ctx.addServletMappingDecoded("/session/*", "SessionManager");
+      ctx.addServletMappingDecoded("/Kiara/callback", "OidcCallback");
+      //      ctx.addServletMappingDecoded("/session/*", "SessionManager");
       ctx.addServletMappingDecoded("/", "WebApp");
 
       final Connector setupConnector = tomcat.getConnector();
